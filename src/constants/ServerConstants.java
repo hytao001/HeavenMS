@@ -15,21 +15,21 @@ public class ServerConstants {
     
     //World And Version
     public static short VERSION = 83;
-    public static String TIMEZONE = "-GMT3";
+    public static String TIMEZONE = "+GMT8";
     public static String[] WORLD_NAMES = {"Scania", "Bera", "Broa", "Windia", "Khaini", "Bellocan", "Mardia", "Kradia", "Yellonde", "Demethos", "Galicia", "El Nido", "Zenith", "Arcenia", "Kastia", "Judis", "Plana", "Kalluna", "Stius", "Croa", "Medere"};
 
     //Login Configuration
-    public static final int CHANNEL_LOAD = 100;                 //Max players per channel.
+    public static final int CHANNEL_LOAD = 100;                 //每个频道同时在线人数
     
     public static final long RESPAWN_INTERVAL = 10 * 1000;	//10 seconds, 10000.
     public static final long PURGING_INTERVAL = 5 * 60 * 1000;
     public static final long RANKING_INTERVAL = 60 * 60 * 1000;	//60 minutes, 3600000.
     public static final long  COUPON_INTERVAL = 60 * 60 * 1000;	//60 minutes, 3600000.
     
-    public static final boolean ENABLE_PIC = false;             //Pick true/false to enable or disable Pic. Delete character needs this feature ENABLED.
-    public static final boolean ENABLE_PIN = false;             //Pick true/false to enable or disable Pin.
+    public static final boolean ENABLE_PIC = true;             //是否启用选择角色中的PIC
+    public static final boolean ENABLE_PIN = false;             //是否启动账号密码处的PIN
     
-    public static final boolean AUTOMATIC_REGISTER = true;      //Automatically register players when they login with a nonexistent username.
+    public static final boolean AUTOMATIC_REGISTER = true;      //是否开启自动注册
     public static final boolean BCRYPT_MIGRATION = true;        //Performs a migration from old SHA-1 and SHA-512 password to bcrypt.
     
     //Ip Configuration
@@ -40,27 +40,27 @@ public class ServerConstants {
     public static boolean SHUTDOWNHOOK;
     
     //Server Flags
-    public static final boolean USE_CUSTOM_KEYSET = true;           //Enables auto-setup of the HeavenMS's custom keybindings when creating characters.
+    public static final boolean USE_CUSTOM_KEYSET = false;           //是否使用自定义按键
     public static final boolean USE_MAXRANGE_ECHO_OF_HERO = true;
     public static final boolean USE_MAXRANGE = true;                //Will send and receive packets from all events on a map, rather than those of only view range.
     public static final boolean USE_DEBUG = false;                  //Will enable some text prints on the client, oriented for debugging purposes.
     public static final boolean USE_DEBUG_SHOW_RCVD_PACKET = false; //Prints on the cmd all received packet ids.
     public static final boolean USE_DEBUG_SHOW_INFO_EQPEXP = false; //Prints on the cmd all equip exp gain info.
-    public static final boolean USE_MTS = false;
-    public static final boolean USE_FAMILY_SYSTEM = false;
-    public static final boolean USE_DUEY = true;
-    public static final boolean USE_RANDOMIZE_HPMP_GAIN = true;     //Enables randomizing on MaxHP/MaxMP gains and INT accounting for the MaxMP gain.
-    public static final boolean USE_STORAGE_ITEM_SORT = true;       //Enables storage "Arrange Items" feature.
+    public static final boolean USE_MTS = true;                     //是否开启拍卖行
+    public static final boolean USE_FAMILY_SYSTEM = true;
+    public static final boolean USE_DUEY = true;                    //是否开启快递
+    public static final boolean USE_RANDOMIZE_HPMP_GAIN = true;     //是否启用随机计算升级HPMP
+    public static final boolean USE_STORAGE_ITEM_SORT = true;       //是否开启自动排列道具功能
     public static final boolean USE_ITEM_SORT = true;               //Enables inventory "Item Sort/Merge" feature.
-    public static final boolean USE_ITEM_SORT_BY_NAME = false;      //Item sorting based on name rather than id.
+    public static final boolean USE_ITEM_SORT_BY_NAME = false;      //是否基于名称排序(开),否则为ID排序
     public static final boolean USE_PARTY_SEARCH = false;
-    public static final boolean USE_PARTY_FOR_STARTERS = true;      //Players level 10 or below can create/invite other players on the given level range.
-    public static final boolean USE_AUTOBAN = false;                //Commands the server to detect infractors automatically.
-    public static final boolean USE_AUTOSAVE = true;                //Enables server autosaving feature (saves characters to DB each 1 hour).
+    public static final boolean USE_PARTY_FOR_STARTERS = true;      //10级以下能否邀请组队
+    public static final boolean USE_AUTOBAN = false;                //是否开启自动封号
+    public static final boolean USE_AUTOSAVE = true;                //是否开启自动保存(每1小时自动保存)
     public static final boolean USE_SERVER_AUTOASSIGNER = true;     //Server-builtin autoassigner, uses algorithm based on distributing AP accordingly with required secondary stat on equipments.
     public static final boolean USE_REFRESH_RANK_MOVE = true;
     public static final boolean USE_ENFORCE_HPMP_SWAP = false;      //Forces players to reuse stats (via AP Resetting) located on HP/MP pool only inside the HP/MP stats.
-    public static final boolean USE_ENFORCE_MOB_LEVEL_RANGE = true; //Players N levels below the killed mob will gain no experience from defeating it.
+    public static final boolean USE_ENFORCE_MOB_LEVEL_RANGE = false; //是否开启怪物超过等级无经验
     public static final boolean USE_ENFORCE_JOB_LEVEL_RANGE = false;//Caps the player level on the minimum required to advance their current jobs.
     public static final boolean USE_ENFORCE_OWL_SUGGESTIONS = false;//Forces the Owl of Minerva to always display the defined item array on GameConstants.OWL_DATA instead of those featured by the players.
     public static final boolean USE_ENFORCE_UNMERCHABLE_PET = true; //Forces players to not sell pets via merchants. (since non-named pets gets dirty name and other possible DB-related issues)
@@ -73,10 +73,10 @@ public class ServerConstants {
     public static final boolean USE_QUEST_RATE = false;              //Exp/Meso gained by quests uses fixed server exp/meso rate times quest rate as multiplier, instead of player rates.
     
     //Server Rates And Experience
-    public static final int EXP_RATE = 10;
-    public static final int MESO_RATE = 10;
-    public static final int DROP_RATE = 10;
-    public static final int QUEST_RATE = 5;                         //Multiplier for Exp & Meso gains when completing a quest. Only available when USE_QUEST_RATE is true. Stacks with server Exp & Meso rates.
+    public static final int EXP_RATE = 1;
+    public static final int MESO_RATE = 1;
+    public static final int DROP_RATE = 1;
+    public static final int QUEST_RATE = 1;                         //Multiplier for Exp & Meso gains when completing a quest. Only available when USE_QUEST_RATE is true. Stacks with server Exp & Meso rates.
     public static final double EQUIP_EXP_RATE = 10.0;               //Rate for equipment exp gain, grows linearly. Set 1.0 for default (about 100~200 same-level range mobs killed to pass equip from level 1 to 2).
     
     public static final double PARTY_BONUS_EXP_RATE = 1.0;          //Rate for the party exp reward.
@@ -117,11 +117,11 @@ public class ServerConstants {
     public static final boolean USE_ULTRA_THREE_SNAILS = true;  //Massive damage on shell toss.
     
     //Character Configuration
-    public static final boolean USE_ADD_SLOTS_BY_LEVEL = true;  //Slots are added each 20 levels.
-    public static final boolean USE_ADD_RATES_BY_LEVEL = true;  //Rates are added each 20 levels.
-    public static final boolean USE_STACK_COUPON_RATES = true;  //Multiple coupons effects builds up together.
-    public static final boolean USE_PERFECT_PITCH = true;       //For lvl 30 or above, each lvlup grants player 1 perfect pitch.
-    public static final int FAME_GAIN_BY_QUEST = 4;             //Fame gain each N quest completes, set 0 to disable.
+    public static final boolean USE_ADD_SLOTS_BY_LEVEL = false;  //Slots are added each 20 levels.
+    public static final boolean USE_ADD_RATES_BY_LEVEL = false;  //Rates are added each 20 levels.
+    public static final boolean USE_STACK_COUPON_RATES = false;  //Multiple coupons effects builds up together.
+    public static final boolean USE_PERFECT_PITCH = false;       //For lvl 30 or above, each lvlup grants player 1 perfect pitch.
+    public static final int FAME_GAIN_BY_QUEST = 0;             //Fame gain each N quest completes, set 0 to disable.
     
     //Equipment Configuration
     public static final boolean USE_EQUIPMNT_LVLUP_SLOTS = true;//Equips can upgrade slots at level up.
@@ -129,7 +129,7 @@ public class ServerConstants {
     public static final boolean USE_SPIKES_AVOID_BANISH = true; //Shoes equipped with spikes prevents mobs from banishing wearer.
     public static final int MAX_EQUIPMNT_LVLUP_STAT_UP = 10000; //Max stat upgrade an equipment can have on a levelup.
     public static final int MAX_EQUIPMNT_STAT = 32767;          //Max stat on an equipment by leveling up.
-    public static final int USE_EQUIPMNT_LVLUP = 7;             //All equips lvlup at max level of N, set 1 to disable.
+    public static final int USE_EQUIPMNT_LVLUP = 1;             //装备最高升级多少级(1为关闭)
     
     //Map-Chair Configuration
     public static final boolean USE_CHAIR_EXTRAHEAL = true;     //Enable map chairs to further recover player's HP and MP (player must have the Chair Mastery skill).

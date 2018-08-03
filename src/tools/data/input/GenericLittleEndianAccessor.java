@@ -128,13 +128,19 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      * @param n Number of characters to read.
      * @return The string read.
      */
-    public final String readAsciiString(int n) {
-        char ret[] = new char[n];
-        for (int x = 0; x < n; x++) {
-            ret[x] = (char) readByte();
+    public final String readAsciiString(int n) { //支持中文聊天显示
+            byte ret[] = new byte[n];
+                for (int x = 0; x < n; x++) {
+                        ret[x] = (byte) readByte();
+                }
+            try  {
+            String str= new String(ret,"GBK");
+                         return str; 
+            } catch (Exception e) {
+                     System.err.println(e);
+            }
+            return null;
         }
-        return String.valueOf(ret);
-    }
 
     /**
      * Reads a null-terminated string from the stream.
